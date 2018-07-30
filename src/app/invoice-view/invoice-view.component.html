@@ -1,0 +1,903 @@
+<input ID="hdnStaffId" runat="server" type="hidden" />
+<input type="hidden" id="HdnMemberId" runat="server" />
+<input type="hidden" id="hdnInvoiceFile" runat="server" />
+<input ID="hdnRestricted" runat="server" type="hidden" />
+<input type="hidden" id="HdnAccessType" runat="server" />
+<div id="DivListRecord">
+  <div class="container" style="margin-top: 20px;">
+    <div class="row col-xs-12" id="divListHeader" style="font-family: Raleway !important;
+                font-size: 22px; font-weight: 600;">
+      <div class=" col-xs-6" style="padding: 5px; margin-bottom: 10px;">
+        <span id="ViewInvoicee" style="font-size: 22px; font-weight: bold; margin-left: -4px;">
+          Invoice view </span>
+      </div>
+      <div class=" col-xs-6" style="padding: 5px; margin-bottom: 10px;">
+        <button ID="btnPrint" runat="server" OnClientClick="return printDiv();" class="btn btn-primary" Style="float: right; margin-right: -29px; font-size: 16px;">Print</button>
+      </div>
+      <hr style="border-top: 1px solid #ccc; width: 102%;" />
+    </div>
+  </div>
+  <div class="container PrintMargin" style="background: #eee !important; width: 84%;
+            min-height: 150px; margin-top: 5px; padding-top: 7px;">
+    <div class="row" style="font-family: Raleway !important; padding: 10px !important;">
+      <div class="col-xs-12" style="font-size: 16px;">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Department Name
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblDept" Style="font-size: 14px;">{{ViewData.Table[0].DepartmentName}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" style="font-size: 16px;">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Head of Department
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblHOD" Style="font-size: 14px;">{{ViewData.Table[0].HodName}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" style="font-size: 16px;">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Event Co-ordinator
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblCord" Style="font-size: 14px;">{{ViewData.Table[0].CordinatorName}}</Label>
+        </div>
+      </div>
+      <div id="DivRequisition" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Date of Requisition
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblDateRequisition" Style="font-size: 14px;">{{ViewData.Table[0].RequistionDate}}</Label>
+        </div>
+      </div>
+      <div id="DivEventCode" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Event Code
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblEventCode" Style="font-size: 14px;">{{ViewData.Table[0].EventCode}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Event Name
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblEventName" Style="font-size: 14px;">{{ViewData.Table[0].Title}}</Label>
+        </div>
+      </div>
+      <div id="DivDateFrom" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Event Start Date
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblDateFrom" Style="font-size: 14px;">{{ViewData.Table[0].Event_StartDate}}</Label>
+        </div>
+      </div>
+      <div id="DivDateTo" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Event End Date
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblDateTo" Style="font-size: 14px;">{{ViewData.Table[0].Event_EndDate}}</Label>
+        </div>
+      </div>
+      <div id="Div3" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Event Place
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblEventPlace" Style="font-size: 14px;">{{ViewData.Table[0].EventPlace}}</Label>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+          Organization Name
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblOrganization" Style="font-size: 14px;">{{ViewData.Table[0].Name}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px;">
+            Participant Name
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px;">
+          <Label ID="lblSentTo" Style="font-size: 14px;">{{ViewData.Table[0].SendTo}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          GST No.
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblGSTNo" Style="font-size: 14px;">{{ViewData.Table[0].GSTNumber}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Billing Address
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblBillingAddress" Style="font-size: 14px;">{{ViewData.Table[0].BillingAddress}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Country
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblcountryname" Style="font-size: 14px;">{{ViewData.Table[0].GST_Country}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" id="divStateDetails">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          State/UT
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblStateName" Style="font-size: 14px;">{{ViewData.Table[0].GST_StateName}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" id="divCityDetail">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          City
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblCityName" Style="font-size: 14px;">{{ViewData.Table[0].GST_CityName}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" id="divPincode">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Pincode
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblPincode" Style="font-size: 14px;">{{ViewData.Table[0].PinCode}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12 hidden" id="divOtherLocation">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Other Location
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblOtherLocation" Style="font-size: 14px;"></Label>
+        </div>
+      </div>
+      <div id="divTan" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 20px;">
+            TAN
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 20px;">
+          <Label ID="lblTAN" Style="font-size: 14px;">{{ViewData.Table[0].TAN}}</Label>
+        </div>
+      </div>
+
+      <div id="div4" class="col-xs-12" style="display: none">
+        <div class="col-xs-3" style="margin-top: 20px;">
+            Membership No
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 20px;">
+          <Label ID="lblMembershipNo" Style="font-size: 14px;"></Label>
+        </div>
+      </div>
+      <div id="divNatureofService" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 20px;">
+            Nature of Service
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 20px;">
+          <Label ID="lblNos" Style="font-size: 14px;">{{ViewData.Table[0].ParticipantTypeText}}</Label>
+        </div>
+      </div>
+      <div id="divMemberStatus" class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 20px;">
+            Member Status
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 20px;">
+          <Label ID="lblMemberStatus" Style="font-size: 14px;">{{ViewData.Table[0].MemStatus}}</Label>
+        </div>
+      </div>
+      <div id="divRemarks" class="col-xs-12" style="display: none">
+        <div class="col-xs-3" style="margin-top: 20px;">
+            Remarks
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-8" style="margin-top: 20px;">
+          <Label ID="lblRemarksDept" Style="font-size: 14px;"></Label>
+        </div>
+      </div>
+      <div id="div6" class="col-xs-12" style="display: none;">
+        <div class="col-xs-3" style="margin-top: 20px;">
+            Basic Amount
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 20px;">
+          <Label ID="lblBasicAmount" Style="font-size: 14px;"></Label>
+        </div>
+      </div>
+      <div id="divAddress" class="col-xs-12" style='display: none;'>
+        <div class="col-xs-3" style="margin-top: 20px;">
+          <Label ID="Address" Style="font-size: 16px;"></Label>
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 20px;">
+          <Label ID="lblAddress" Style="font-size: 14px;"></Label>
+        </div>
+      </div>
+      <div id="divNatureOfSupporting" class="col-xs-12" style="display: none;">
+        <div class="col-xs-3 details" style="margin-top: 20px;">
+          <Label ID="lblNatureOfSupporting" Style="font-size: 16px;">Nature of Supporting</Label>
+        </div>
+        <div class="col-xs-1" style="margin-top: 20px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 20px;">
+          <Label ID="lblNatureOfSupporting1" Style="font-size: 14px;"></Label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container TopBuffer PrintMargin">
+    <div class="row" style="font-family: Raleway; font-size: 22px; font-weight: 600;">
+      <div class="col-xs-12 " style="margin-bottom: 10px;">
+        <div id="divNolist" style="display: none; padding: 15px; border: 1px solid #ccc;
+                        font-family: Raleway; font-size: 22px; font-weight: 500;">
+          No Record Found !
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container " style="margin-top: 20px;" id="divFinacialDetails">
+    <div class="row col-xs-12" id="div1" style="font-family: Raleway; font-size: 22px;
+                font-weight: 600;">
+      <div class=" col-xs-6" style="padding: 5px; margin-bottom: 10px;">
+        <span id="Span2" style="font-size: 22px; font-weight: bold; margin-left: -4px;">Contact details of Finance Person</span>
+      </div>
+      <hr style="border-top: 1px solid #ccc; width: 102%;" />
+    </div>
+  </div>
+  <div id="divContactFinacialDetails" class="container PrintMargin" style="background-color: #eee;
+            width: 84%; min-height: 100px; margin-top: 5px; padding-top: 7px;">
+    <div class="row col-xs-12" style="font-family: Raleway; padding: 10px;">
+      <div class="col-xs-12" id="divFinacialName">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Name
+        </div>
+        <div class="col-xs-1 " style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblFinName" Style="font-size: 14px;">{{ViewData.Table[0].FinacialName}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" id="divFinancialDesignation">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Designation
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblFinDesignation" Style="font-size: 14px;">{{ViewData.Table[0].FinacialDesignation}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" id="divFinacialPhone">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Phone No.
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblPhoneNo" Style="font-size: 14px;">{{ViewData.Table[0].FinacialPhone}}</Label>
+        </div>
+      </div>
+      <div class="col-xs-12" id="divFinancialEmail">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          EmailId
+        </div>
+        <div class="col-xs-1 " style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6 details" style="margin-top: 10px; font-size: 16px;">
+          <Label ID="lblEmailId" Style="font-size: 14px;">{{ViewData.Table[0].FinacialEmail}}</Label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container TopMargin">
+    <div class="row" id="div2" style="font-family: Raleway; font-size: 22px; font-weight: 600;">
+      <div class="col-xs-12">
+        <span id="Span4" style="font-size: 22px; font-weight: bold; margin-left: 1px;">Confirmation Doc. :</span>
+        <hr style="border-top: 1px solid #ccc; width: 100%;" />
+      </div>
+    </div>
+  </div>
+  <div class="container TopBuffer PrintMargin">
+    <div class="row" style="font-family: Raleway; font-size: 22px; font-weight: 600;">
+      <div class="col-xs-12 " style="margin-bottom: 10px;">
+        <table id="tblConfirmDoc" style="width: 80%;">
+          <thead>
+            <tr class="FontStyle">
+              <th>S. No.</th>
+              <th>Nature of Support</th>
+              <th>Confirmation Doc</th>
+              <th>Download</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doc of ViewData.Table7; let row_no = index">
+              <td>{{row_no + 1}}</td>
+              <td>{{doc.NatureOfSupporting}}</td>
+              <td>{{doc.ConfirmationDoc}}</td>
+              <td><a><i class="fa fa-download" style="margin-left: 15px;font-size: 22px;"></i></a></td>
+              <td><a><i class="fa fa-eye" style="margin-left: 15px;font-size: 22px;"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 20px;" id="div5">
+    <div class="row col-xs-12 " id="div7" style="font-family: Raleway; font-size: 22px;
+                font-weight: 600;">
+      <div class=" col-xs-6 " style="padding: 5px; margin-bottom: 10px;">
+        <span id="Span3" style="font-size: 22px; font-weight: bold; margin-left: -4px;">Payment Details
+        </span>
+      </div>
+      <hr style="border-top: 1px solid #ccc; width: 102%;" />
+    </div>
+  </div>
+  <div id="div8" class="container PrintMargin" style="background-color: #eee; width: 84%;
+            margin-top: 5px; padding-top: 7px;">
+    <div class="row col-xs-12" style="font-family: Raleway; padding: 10px;">
+      <div class="col-xs-12">
+        <div class="col-xs-3 " style="margin-top: 10px; font-size: 16px;">
+          Payment Status
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          <label id="lblPaymentStatus" style="font-size: 14px; font-weight: normal;">
+            {{ViewData.Table10[0].PaymentStatus}}
+          </label>
+        </div>
+        <div id="divPaymentMode" style="display: none">
+          <div class="col-xs-2" style="margin-top: 10px; font-size: 16px;">
+            Payment Mode
+          </div>
+          <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+            <label style="font-size: 14px;">
+              :</label>
+          </div>
+          <div class="col-xs-2" style="margin-top: 10px; font-size: 16px;">
+            <label id="lblPAymentMode" style="font-size: 14px; font-weight: normal;">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="divCash" class="Fsize" style="display: none">
+        <div class="col-xs-12">
+          <div class="col-xs-3">
+            <span>Receipt No./ Paying Slip</span>
+          </div>
+          <div class="col-xs-1">
+            :
+          </div>
+          <div class="Desc col-xs-3">
+            <Label ID="lblReceiptNo" runat="server"></Label>
+
+          </div>
+        </div>
+      </div>
+      <div id="divCheque" style="display: none">
+        <div class="col-xs-12">
+          <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+            Cheque No.
+          </div>
+          <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+            <label style="font-size: 14px;">
+              :</label>
+          </div>
+          <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+            <label id="lblChequeNo" style="font-size: 14px; font-weight: normal;">
+            </label>
+          </div>
+          <div class="col-xs-2" style="margin-top: 10px; font-size: 16px;">
+            Cheque Date
+          </div>
+          <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+            <label style="font-size: 14px;">
+              :</label>
+          </div>
+          <div class="col-xs-2" style="margin-top: 10px; font-size: 16px;">
+            <label id="lblChequeDate" style="font-size: 14px; font-weight: normal;">
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+            Bank Name
+          </div>
+          <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+            <label style="font-size: 14px;">
+              :</label>
+          </div>
+          <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+            <label id="lblBankName" style="font-size: 14px; font-weight: normal;">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="divNEFT" style="display: none">
+        <div class="col-xs-12">
+          <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+            Transaction No.
+          </div>
+          <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+            <label style="font-size: 14px;">
+              :</label>
+          </div>
+          <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+            <label id="lblTransactionNo" style="font-size: 14px; font-weight: normal;">
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+            Transaction Date
+          </div>
+          <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+            <label style="font-size: 14px;">
+              :</label>
+          </div>
+          <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+            <label id="lblTransactionDate" style="font-size: 14px; font-weight: normal;">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container TopMargin">
+    <div class="row" id="divParticipants" style="font-family: Raleway; font-size: 22px;
+                font-weight: 600;">
+      <div class="col-xs-12">
+        <span id="spnparticipants" style="font-size: 22px; font-weight: bold; margin-left: 1px;">
+          Participants :</span>
+        <hr style="border-top: 1px solid #ccc; width: 100%;" />
+      </div>
+    </div>
+  </div>
+  <div class="container TopBuffer PrintMargin">
+    <div class="row" style="font-family: Raleway; font-size: 22px; font-weight: 600;">
+      <div class="col-xs-12 " style="margin-bottom: 10px;">
+        <table id="tblList" style="width: 100%; margin-top: 20;">
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Participant Name</th>
+              <th>Organisation Name</th>
+              <th>Delegate Status</th>
+              <th>Basic Amount( in Rs. )</th>
+              <th>Group Discount( in Rs. )</th>
+              <th>Early Bird Discount( in Rs. )</th>
+              <th>GST%</th>
+              <th>GST( in Rs. )</th>
+              <th>Total Amount(in Rs.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Participant of ViewData.Table1; let row_no = index">
+              <td>{{row_no + 1}}</td>
+              <td>{{Participant.Name}}</td>
+              <td>{{Participant.CompanyName}}</td>
+              <td>{{Participant.CategoryType}}</td>
+              <td>{{Participant.BasicAmount}}</td>
+              <td>{{Participant.GroupDiscount}}</td>
+              <td>{{Participant.EarlyBirdDiscount}}</td>
+              <td>{{Participant.GST_Percentage}}</td>
+              <td>{{Participant.ServiceTax}}</td>
+              <td>{{Participant.amount}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="divNoRecord" style="display: none; padding: 15px; border: 1px solid #ccc;
+                        font-family: Raleway; font-size: 22px; font-weight: 500;">
+          No Record Found !
+        </div>
+        <div id="divTotal" style="float: right; margin-top: 10px;">
+          <span>Total</span>&nbsp;&nbsp;
+          <span>
+            <Label ID="lblTotal" runat="server" Text="">Rs.{{ViewData.Table2[0].TotalAmount}}</Label>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 20px;" runat="server" id="divInvoiceUpload">
+  <div class=" TopMargin">
+    <div class="row" id="divuploadinvoice" style="font-family: Raleway; font-size: 22px;
+                font-weight: 600;">
+      <div class="col-xs-12">
+        <span id="Span7" style="font-size: 22px; font-weight: bold; margin-left: 1px;">
+          Upload Invoice :</span>
+        <hr style="border-top: 1px solid #ccc; width: 100%;" />
+      </div>
+    </div>
+    <div class="row" style="background-color: #eee; width: 100%;
+            margin-top: 5px; padding-top: 7px;padding-bottom:12px;">
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Invoice No.
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+          <input ID="txtInvoiceNo" runat="server" Class="form-control" />
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Invoice Date
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+          <input ID="txtInvoiceDate" runat="server" autocomplete="off" onkeypress="return false" onkeydown="return false" Class="form-control datepicker"
+          />
+
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="col-xs-3" style="margin-top: 10px; font-size: 16px;">
+          Invoice Amount
+        </div>
+        <div class="col-xs-1" style="margin-top: 10px; font-size: 16px;">
+          <label style="font-size: 14px;">
+            :</label>
+        </div>
+        <div class="col-xs-6" style="margin-top: 10px; font-size: 16px;">
+          <input ID="txtInvoiceAmount" runat="server" Class="form-control" />
+
+        </div>
+      </div>
+      <div class="col-xs-12 TopMargin" style="font-family: Raleway; font-size: 22px; font-weight: 600;">
+        <div class="col-xs-2">
+          <span id="Invoice" style="font-size: 18px; margin-left: -10px;">Upload Invoice :</span>
+          <font style="color: Red">*</font>
+        </div>
+        <div class="col-xs-1">
+          <button ID="btnFileUpload" runat="server" class="btn btn-success" Style="font-size: 16px;" OnClientClick="return InvoiceUpload();">Upload</button>
+          <!-- <asp:FileUpload ID="Invoiceupload" onchange="return ChangeInvoice(this);" runat="server" Style="display: none;" /> -->
+        </div>
+        <div class="col-xs-9">
+          <a href="#" id="lbltext" style="font-size: 16px; font-weight: 100;" download></a>
+        </div>
+      </div>
+      <div class="col-xs-12" style="font-family: Raleway; font-size: 22px; font-weight: 600;">
+        <span id="Span1" style="font-size: 14px; color: #808080; margin-left: 18%;">( please upload invoice in pdf format only )</span>
+      </div>
+      <div class="col-xs-12 TopMargin" style="margin-bottom: 20px; display: none;" runat="server" id="divInvoiceAttachments">
+        <div class="row col-sm-offset-2 col-sm-10" style="font-family: Raleway; font-size: 22px;
+            font-weight: 600;">
+          <table id="tblAttachments" class="gridview" style="width: 75%;">
+            <tr>
+              <th style="width: 37%;">
+                File Name
+              </th>
+              <th style="width: 6%;">
+                Download
+              </th>
+              <th style="width: 6%;">
+                Remove
+              </th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="container" style="margin-bottom: 20px; display: none;" runat="server" id="divRejectedInvoice">
+  <div class="row col-lg-12 col-sm-12" style="font-family: Raleway; font-size: 22px;
+            font-weight: 600;">
+    <div class="col-sm-3 col-lg-3">
+      <span id="SpanReasonReject" style="font-size: 18px; margin-left: -10px;">Reason for Rejection :</span>
+    </div>
+    <div class="col-sm-9 col-lg-9">
+      <Label ID="lblReason" Style="font-size: 16px; font-weight: 100"></Label>
+    </div>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 20px; display: none;" runat="server" id="divCancelledInvoice">
+  <div class="row col-lg-12 col-sm-12" style="font-family: Raleway; font-size: 22px;
+            font-weight: 600;">
+    <div class="col-sm-3 col-lg-3">
+      <span id="SpanReasonCancel" style="font-size: 18px; margin-left: -10px;">Reason for Cancel :</span>
+    </div>
+    <div class="col-sm-9 col-lg-9">
+      <Label ID="lblReasonCancel" Style="font-size: 16px; font-weight: 100"></Label>
+    </div>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 20px; display: none;" runat="server" id="divCancellationMailBody">
+  <div class="row col-lg-12 col-sm-12" style="font-family: Raleway; font-size: 22px;
+            font-weight: 600;">
+    <div class="col-sm-3 col-lg-3">
+      <span id="Span6" style="font-size: 18px; margin-left: -10px;">Confirmation Mail:</span>
+    </div>
+    <div class="col-sm-9 col-lg-9">
+      <p id="pCancellationMailBody" style="font-size:16px;font-weight:normal"></p>
+    </div>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 20px;">
+  <div>
+    <div class="col-lg-12 col-sm-12">
+      <div class="col-md-1 pull-right">
+        <button ID="btnclose" class="btn btn-primary" OnClick="btnclose_Click" Style="font-size: 16px;" runat="server">Close</button>
+      </div>
+      <div id="DivbtnRevert" class="col-md-1 pull-right" >
+        <button ID="btnRevert" class="btn btn-danger" OnClientClick="return RevertPopup();" Style="font-size: 16px;" runat="server">Revert</button>
+      </div>
+      <div class="col-sm-3 pull-right" id="divCancel" style="display: none;width: 21%;">
+        <button ID="btnCancel" class="btn btn-danger" OnClientClick="return ConfirmCancelSave();" Style="font-size: 16px;" runat="server">Confirmation Cancellation</button>
+      </div>
+      <div id="DivbtnReject" class="col-md-1 pull-right">
+        <button ID="btnReject" class="btn btn-danger" OnClientClick="return RejectPopup();" Style="font-size: 16px;" runat="server">Reject</button>
+      </div>
+      <div id="Divbtnsave" class="col-md-1 pull-right" >
+        <button ID="btnsave" class="btn btn-success" OnClientClick="return ValidateInvoice();" OnClick="btnsave_Click" Style="font-size: 16px;"
+          runat="server">Save</button>
+        <Label ID="lblFilename" runat="server" Text=""></Label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ViewInvoice">
+  <div class="modal-dialog" role="document" style="width: 850px">
+    <!-- Modal content-->
+    <div class="modal-content Pop-up-modal-content Pop-up-modal-content-zoom" style="width: 80%;">
+      <div class="modal-header" style="border-bottom: 1px solid #ccc; background-color: lightgray;">
+        <button type="button" class="close" data-dismiss="modal" onclick="return OnClose();">
+          &times;</button>
+        <h4 class="modal-title">
+          Uploaded Invoice</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px; padding-left: 20px;">
+        <h3>
+          <label id="lblName">
+          </label>
+        </h3>
+        <p style="padding-left: 3%;">
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return OnConfirm();">
+          Confirm</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return OnClose();">
+          Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="divViewNatureofSupport">
+  <div class="modal-dialog" role="document" style="width: 850px">
+    <!-- Modal content-->
+    <div class="modal-content Pop-up-modal-content Pop-up-modal-content-zoom" style="width: 80%;">
+      <div class="modal-header" style="border-bottom: 1px solid #ccc; background-color: lightgray;">
+        <button type="button" class="close" data-dismiss="modal" onclick="return OnClose1();">
+
+          &times;</button>
+        <h4 class="modal-title">
+          View Nature of Support</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px; padding-left: 20px;">
+        <h3>
+        </h3>
+        <p style="padding-left: 3%;">
+          <!-- <div class='NormalDiv' style="text-align: center;">
+            <img id='imgNatureofSupport' height="400px" width="99%" style="display: none;" />
+            <iframe style="width: 99%; height: 400px; overflow-x: hidden;" frameborder="0" id="iframeNatureofSupport">
+            </iframe>
+          </div> -->
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return OnClose1();">
+
+          Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="divReasonForReject" style="padding-top: 10%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-md Pop-up-modal-content">
+      <div class="modal-header" style="border-bottom: 1px solid #ccc; background-color: lightgray;">
+        <h5 class="modal-title">
+          <span id="id=titleName">Reason for reject</span>
+        </h5>
+        <button type="Button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -23px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding-bottom: 0px;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 nopadding" style="margin-left: 26px;">
+              <textarea runat="server" id="txtReason" placeholder="Reason" maxlength="200" style="width: 90%;
+                                    height: 100px; border-radius: 4px;" cssclass="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-right: 52px;">
+        <button type="button" id="Button1" class="btn btn-success" onclick="return RejectReasonSave();">
+          OK</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="divReasonForRevert" style="padding-top: 10%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-md Pop-up-modal-content">
+      <div class="modal-header" style="border-bottom: 1px solid #ccc; background-color: lightgray;">
+        <h5 class="modal-title">
+          <span id="Span5">Reason for revert</span>
+        </h5>
+        <button type="Button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -23px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding-bottom: 0px;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 nopadding" style="margin-left: 26px;">
+              <textarea runat="server" id="txtReasonforRevert" placeholder="Reason" maxlength="200" style="width: 90%;
+                                    height: 100px; border-radius: 4px;" cssclass="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-right: 52px;">
+        <button type="button" id="btnRevertSave" class="btn btn-success" onclick="return RevertReasonSave();">
+          OK</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input ID="hdnNoProgress" runat="server" Value="0" type="hidden" />
+<div id="Background2" class="Background" style="display: none">
+</div>
+<div id="Progress2" class="Loading" style="display: none;">
+  <img src="http://mycii.in/Image/FlowerLoading.gif" width="30" alt='' />&nbsp;&nbsp; Please wait...
+</div>
+
+<div id="divforPrint">
+</div>

@@ -1,0 +1,45 @@
+<input ID="hdnUserId" runat="server" type="hidden"/>
+    <div class="container-fluid TopBottomBuffer" style="margin: 0px;">
+        <div class="container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-top: 1%; padding-left: 0px;">
+                <span class="HeaderOne">Invoice </span><span class="HeaderTwo">Upload </span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <!-- <img src="../Image/CII-Logo.png" class="img-responsive pull-right" /> -->
+              <img src="../assets/image/CII-Logo.png"  class="img-responsive pull-right"  />
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: #06c; margin: 0px;">
+        <div class="container  NoGutter" style="height: 56px;">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left; color: #fff;
+                padding-top: 15px; font-family: Raleway; font-size: 18px; color: #FFF; float: left;">
+                <a href="PendingInvoiceList.aspx" style="color: #fff;"><span>Home</span></a> 
+                <a id="lnkInvoiceBulkUpload" href="InvoiceBulkUploads.aspx" style="color: #fff;display:none;"><span style="padding-left: 25px;">
+                          Invoice - Bulk Upload</span></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-top: 6px;
+                position: relative;">
+                <div style="font-size: 18px; font-family: Raleway; color: #FFF; margin-left: 10px;
+                    text-align: right; padding-top: 10px;">
+                    <img runat="server" class="img-circle" Style="display: none; width: 40px; height: 40px;"
+                        ID="imgLoginUser" alt="LoginUser" />
+                    <span>Hi,</span>
+                    <span runat="server" ID="UserName"></span>
+                    <span style="margin-left: 15px"><a href="#" onclick="return Collapse();">
+                        <img id="imgLoginUserArrow" ng-src="../assets/image/Arrow.png" /></a> </span>
+                </div>
+                <div id="divLoggedOptions" class="LoggedPanel">
+                    <div style="width: 100%; float: left;">
+                       <!--  <div style="float: left; height: 30px; padding: 10px; font-family: raleway; font-size: 16px;">
+                            <a  href="ChangePassword.aspx" onclick="return ChangePassword();" style="text-decoration: none;">Change
+                                Password</a>
+                        </div> -->
+                        <div style="float: left; height: 45px; padding: 10px; font-family: raleway; font-size: 16px;">
+                            <button ID="lnkLogout" Style="text-decoration: none; padding-left:35px;" OnClick="lnkLogout_Click" runat="server" Text="Logout"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

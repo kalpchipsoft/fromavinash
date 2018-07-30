@@ -1,0 +1,114 @@
+
+.modal1
+{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 255, 255, 255, .8 ) url('/assets/images/loading.gif') 50% 50% no-repeat;
+}
+body.loading
+{
+    overflow: hidden;
+}
+body.loading .modal1
+{
+    display: block;
+}
+.SearchBar
+{
+    min-height: 100px;
+    background-color: #fcf7dd;
+    border: 1px solid #ccc;
+    padding: 20px;
+    font-family: Raleway;
+    font-size: 16px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.TopMargin
+{
+    margin-top: 10px;
+}
+th
+{
+    background-color: #003366;
+    font-family: raleway;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    height: 45px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+}
+td
+{
+    background-color: #fff;
+    font-family: raleway;
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+    min-height: 45px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.TopBottomBuffer
+{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.TopBuffer
+{
+    padding-top: 15px;
+}
+.NoGutter
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.Background
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+    filter: alpha(opacity=222);
+    opacity: 0.4;
+    z-index: 999;
+}
+.Loading
+{
+    background-color: #FFF;
+    position: fixed;
+    top: 55%;
+    left: 45%;
+    width: 150px;
+    height: 45px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+    font-family: Arial;
+    font-size: 12px;
+    z-index: 9999;
+}
+.Mycheckbox
+{
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border: 1px solid #f1f1f1;
+}
+.NoGutter .chosen-container
+{ 
+    width: 180px !important;
+    height:35px !important;
+}

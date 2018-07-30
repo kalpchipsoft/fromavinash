@@ -1,0 +1,220 @@
+.Background
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+    filter: alpha(opacity=222);
+    opacity: 0.4;
+    z-index: 999;
+}
+.Loading
+{
+    background-color: #FFF;
+    position: fixed;
+    top: 55%;
+    left: 45%;
+    width: 150px;
+    height: 45px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+    font-family: Arial;
+    font-size: 12px;
+    z-index: 9999;
+}
+*
+{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	font-size: 12px;
+}
+body
+{
+	background-color: #ECF0F3;
+}
+#banner
+{
+	width: 100%;
+	padding-top: .95em;
+	height: 6.6em;
+    background: url('http://www.mycii.in/Image/Top-banner-bg.png');
+	background-size: 100% 100%;
+}
+#banner img:last-of-type
+{
+	margin-top: .6em;
+}
+.wrapper
+{
+	width: 980px;
+	margin: auto;
+	overflow: auto;
+}
+.container
+{
+	float: left;
+	width: 100%;
+}
+.container-left-half
+{
+	float: left;
+	width: 49.4%;
+}
+.container-right-half
+{
+	float: right;
+	width: 49.4%;
+}
+.container-margin
+{
+	margin-top: 2%;
+}
+.container-left
+{
+	float: left;
+	width: 28%;
+}
+.container-right
+{
+	float: right;
+	width: 71%;
+}
+.left-text
+{
+	float: left;
+	text-align: left;
+}
+.right-text
+{
+	float: right;
+	text-align: right;
+}
+.login-box
+{
+	background-color: #FEFEFE;
+	width: 340px;
+	margin: auto;
+	overflow: auto;
+	margin-top: 7.5%; /*border: solid 1px #C0D4D3;*/
+	border: solid 1px #CCC;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 5px 1px #CCC;
+	-moz-box-shadow: 0px 0px 5px 1px #CCC;
+	box-shadow: 0px 0px 5px 1px #CCC;
+}
+input[type=checkbox]
+{
+	width: 21px;
+	height: 13px;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+	overflow: hidden;
+}
+.userinfo-box
+{
+	color: #FFFFFF;
+	height: 25px;
+	line-height: 25px;
+	background-color: #CC3300;
+}
+.userinfo-box a, userinfo-box span
+{
+	color: #FFFFFF;
+}
+.table-light
+{
+	border-collapse: collapse;
+	border: solid 1px #E5E3E3;
+	background-color: #FFFFFF;
+}
+.table-light td, .table-light th
+{
+	padding: 0.5%;
+	color: #000000;
+}
+.table-light th
+{
+	border: 1px solid #CCCCCC;
+	text-align: left;
+	background-color: #E5E3E3;
+}
+.table-light td
+{
+	border: 1px solid #E5E3E3;
+	border-bottom: dashed 1px #E5E3E3;
+}
+.table-light a
+{
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.rounded-textbox
+{
+	height: 1.5em;
+	border-radius: 3px;
+	padding: .8%;
+	border: solid 1px #ACACAC;
+}
+
+.rounded-dropdown
+{
+	border: solid 1px #ACACAC;
+	padding: .8%;
+	border-radius: 3px;
+}
+.button
+{
+	background-color: #0D496B;
+	border: solid 0px #0D496B;
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+	font-weight: normal;
+	cursor: pointer;
+	height: 22px; /*border-radius: 5px; 	vertical-align: middle;*/
+	width: 80px;
+	border-radius: 3px;
+}
+.button:hover
+{
+	background-color: White;
+	border: solid 1px #0D496B;
+	font-family: Arial;
+	font-size: 12px;
+	color: #0D496B;
+	font-weight: normal;
+	cursor: pointer;
+	height: 22px; /*border-radius: 5px; 	vertical-align: middle;*/
+	width: 80px;
+	border-radius: 3px;
+}
+.page-header
+{
+	float: left;
+	width: 100%;
+	border-bottom: solid 1px #CCCCCC;
+	color: #cc3300;
+	font-size: 16px;
+	font-family: Arial;
+	padding-bottom: .7%;
+}
+.search-box
+{
+	float: left;
+	width: 100%;
+	height: auto;
+	text-align: right;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: solid 1px #CCCCCC;
+}
